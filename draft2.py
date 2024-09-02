@@ -110,9 +110,28 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+# Footer with social media icons
+st.markdown(
+    """
+    <hr>
+    <div class="footer">
+        <ul class="social-icons">
+            <li><a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://instagram.com"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://plus.google.com"><i class="fab fa-google-plus-g"></i></a></li>
+            <li><a href="https://linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
 # CSS to style the header, background, overlay text, and new sections
 st.markdown(
     """
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
     .header {
         display: flex;
@@ -293,6 +312,37 @@ st.markdown(
     .stApp .full-page {
         background: url("https://cdn.pixabay.com/photo/2020/06/19/22/33/wormhole-5319067_960_720.jpg");
         background-size: cover
+    }
+    }
+    .footer {
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    .footer .social-icons {
+        display: flex;
+        justify-content: right;
+        list-style: none;
+        padding: 20px;
+    }
+    .footer .social-icons li {
+        margin: 0 10px;
+    }
+    .footer .social-icons li a {
+        text-decoration: none;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-color: #f9f9f9;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        color: #666;
+        font-size: 15px;
+    }
+    .footer .social-icons li a:hover {
+        background-color: #ddd;
+        color: #007bff;
     }
     #MainMenu, header, footer {visibility: hidden;}
     </style>
