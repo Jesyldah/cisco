@@ -299,3 +299,22 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+# Build responsive apps based on different screen features
+from st_screen_stats import ScreenData, WindowQuerySize, WindowQueryHelper
+
+helper_screen_stats = WindowQueryHelper()
+
+def onScreenSizeChange(updated_screen, component_function_):
+
+    st.session_state[updated_screen] = st.session_state[component_function_]
+
+if "large_screen_size_" not in st.session_state:
+    st.session_state["large_screen_size_"] = helper_screen_stats.window_range_width(min_width=1000, max_width=1100, key="lg_screen")
+else:
+    helper_screen_stats.window_range_width(min_width=1000, max_width=1100, on_change=onScreenSizeChange, args=("large_screen_size_", "lg_screen_post_first_mount"), key="lg_screen_post_first_mount")
+
+if st.session_state["large_screen_size_"]["status"]:
+    st.write("rest of code here")
+
+# Also works for `ScreenData` and `WindowQuerySize` classes
